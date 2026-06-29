@@ -1,0 +1,5 @@
+public protocol UseCaseProtocol {
+    associatedtype Input
+    associatedtype Output
+    func execute(_ input: Input) async throws -> Output
+}

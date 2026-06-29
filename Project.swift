@@ -3,6 +3,12 @@ import ProjectDescription
 let project = Project(
     name: "Petty",
     organizationName: "MarkusRay",
+    packages: [
+        .local(path: "Packages/Core"),
+        .local(path: "Packages/Domain"),
+        .local(path: "Packages/Data"),
+        .local(path: "Packages/Features/Home"),
+    ],
     settings: .settings(
         base: [
             "DEVELOPMENT_TEAM": "QUZPX8CSYQ",
@@ -19,7 +25,9 @@ let project = Project(
             infoPlist: .default,
             sources: ["Petty/**/*.swift"],
             resources: ["Petty/Assets.xcassets"],
-            dependencies: []
+            dependencies: [
+                .package(product: "Home"),
+            ]
         ),
         .target(
             name: "PettyTests",

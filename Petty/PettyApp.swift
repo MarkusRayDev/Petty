@@ -1,10 +1,3 @@
-//
-//  PettyApp.swift
-//  Petty
-//
-//  Created by Markus Ray on 29.06.2026.
-//
-
 import SwiftUI
 
 @main
@@ -14,10 +7,12 @@ struct PettyApp: App {
 #else
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
 #endif
-    
+
+    private let container = AppDIContainer()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppCoordinator(container: container)
         }
     }
 }
