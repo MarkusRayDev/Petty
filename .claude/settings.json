@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | { read -r f; echo \"$f\" | grep -q '\\.swift$' && swiftlint lint --quiet --path \"$f\" 2>/dev/null || true; }",
+            "timeout": 15,
+            "statusMessage": "SwiftLint checking..."
+          }
+        ]
+      }
+    ]
+  }
+}
